@@ -40,29 +40,8 @@ Return code	Service status:
 
 Create a check command: First you should define a command in the commands.cfg file. This file location depends on the configuration you've done, in my case it is in /usr/local/nagios/etc/objects/commands.cfg. name : check_nfsstorage 
 
-# Command configuration file
-
-define command {
-    command_name    check_nfsstorage
-    command_line    $USER1$/check_snmp_extend.py -H $HOSTADDRESS$ -e sr_script -v 2c -c <community-name> —warning $ARG1$ —critical $ARG2$
-}
-
-
 Create a service: You need to create a service and select the above check command and in the $ARG1$ mention the warning level and in the $ARG2$ mention the critical level. 
 
-# Service configuration file
-define service {
-    host_name              linux-server1, 2, 2
-    service_description    nfs storage service
-    display_name           check_nfsstorage
-    check_command          check_nfsstorage!80!90!!!!!!
-    max_check_attempts     5
-    check_interval         5
-    retry_interval         1
-    check_period           24x7
-    notification_period    24x7
-    register               1
-}
 
 In order to verify your configuration, run Nagios with the -v command line option like so:
 
