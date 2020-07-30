@@ -34,8 +34,11 @@ For writing the script, you need to keep in mind the exit codes:
 Return code	Service status: 
 
 0	OK
+
 1	WARNING
+
 2	CRITICAL
+
 3	UNKNOWN
 
 Create a check command: First you should define a command in the commands.cfg file. This file location depends on the configuration you've done, in my case it is in /usr/local/nagios/etc/objects/commands.cfg. name : check_nfsstorage 
