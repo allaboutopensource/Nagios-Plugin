@@ -16,6 +16,7 @@ Copy the check_snmp_extend.py script to the plugin location of the nagios (/usr/
 change the mode and ownership : 
 
 chmod +x /usr/local/nagios/libexec/check_snmp_extend.py
+
 chown apache:nagios /usr/local/nagios/libexec/check_snmp_extend.py 
 
 You need to add A SNMP EXEC (EXTEND) to the Linux/Xen host :
