@@ -19,7 +19,7 @@ chmod +x /usr/local/nagios/libexec/check_snmp_extend.py
 
 chown apache:nagios /usr/local/nagios/libexec/check_snmp_extend.py 
 
-You need to add A SNMP EXEC (EXTEND) to the Linux/Xen host :
+You need to add A SNMP EXEC (EXTEND) to the Linux/Xen host and give the community name to the config:
 
 edit /etc/snmp/snmpd.conf and add a line like this :
 
@@ -27,11 +27,12 @@ extend <script name> /usr/bin/<location of the script>
 
 We need to run the script as : 
 
-./check_snmp_extend.py --host localhost --snmp-version 2c --community <your community name> --extend-name <name>
+./check_snmp_extend.py --host localhost --snmp-version 2c --community <community name> --extend-name <name>
   
 For writing the script, you need to keep in mind the exit codes:
 
 Return code	Service status: 
+
 0	OK
 1	WARNING
 2	CRITICAL
