@@ -40,12 +40,11 @@ Return code	Service status:
 
 Create a check command: First you should define a command in the commands.cfg file. This file location depends on the configuration you've done, in my case it is in /usr/local/nagios/etc/objects/commands.cfg. name : check_nfsstorage 
 
-$USER1$/check_snmp_extend.py -H $HOSTADDRESS$ -e sr_script -v 2c -c <your community name> —warning $ARG1$ —critical $ARG2$
-
 # Command configuration file
+
 define command {
     command_name    check_nfsstorage
-    command_line    $USER1$/check_snmp_extend.py -H $HOSTADDRESS$ -e sr_script -v 2c -c ITOps —warning $ARG1$ —critical $ARG2$
+    command_line    $USER1$/check_snmp_extend.py -H $HOSTADDRESS$ -e sr_script -v 2c -c <community-name> —warning $ARG1$ —critical $ARG2$
 }
 
 
@@ -54,7 +53,7 @@ Create a service: You need to create a service and select the above check comman
 # Service configuration file
 
 define service {
-    host_name              iadxenbf201,iadxenbf202,iadxenbf204
+    host_name              linux-server1, 2, 2
     service_description    nfs storage service
     display_name           check_nfsstorage
     check_command          check_nfsstorage!80!90!!!!!!
