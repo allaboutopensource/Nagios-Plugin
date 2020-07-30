@@ -51,7 +51,6 @@ define command {
 Create a service: You need to create a service and select the above check command and in the $ARG1$ mention the warning level and in the $ARG2$ mention the critical level. 
 
 # Service configuration file
-
 define service {
     host_name              linux-server1, 2, 2
     service_description    nfs storage service
