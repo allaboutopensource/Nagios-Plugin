@@ -1,0 +1,7 @@
+
+# Command configuration file
+
+define command {
+    command_name    check_nfsstorage
+    command_line    $USER1$/check_snmp_extend.py -H $HOSTADDRESS$ -e sr_script -v 2c -c <community-name> —warning $ARG1$ —critical $ARG2$
+}
