@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+import re
+import os
+import sys
+import subprocess
+import collections
+import time
+import mmap
+
+log_file = "/var/log/kern.log"
+search_term = "<nf server ip > not responding"
+
+file = open('/var/log/kern.log')
+for line in file:
+     if any(re.search(search_term, line) for line in file):
+         print("NFS storage time-out error found")
+         sys.exit(2)
+     else:
+        print ("No NFS storage error")
+        sys.exit(0)
