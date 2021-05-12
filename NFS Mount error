@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+import os
+import sys
+import time
+from time import sleep, time
+
+dir = "/var/lib/nova"
+file = "touch.txt"
+
+if os.path.exists(dir):
+    os.chdir(dir)
+    with open(file, mode='a'):
+        print("Storage Mount Points are working Fine")
+#        sys.exit(0)
+else:
+    print ("NFS Storage Mount Error")
+#    sys.exit(2)
+sleep(10)
+if os.path.exists(file):
+    os.remove(file)
